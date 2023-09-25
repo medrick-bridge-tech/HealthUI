@@ -10,7 +10,7 @@ public class HealthPresenter : MonoBehaviour
     
     private void OnEnable()
     {
-        if (_health.onHealthChanged != null)
+        if (_health != null)
         {
             _health.onHealthChanged += UpdateHealthBar;
         }
@@ -18,7 +18,7 @@ public class HealthPresenter : MonoBehaviour
     
     private void OnDisable()
     {
-        if (_health.onHealthChanged != null)
+        if (_health != null)
         {
             _health.onHealthChanged -= UpdateHealthBar;
         }

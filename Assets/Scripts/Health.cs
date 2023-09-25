@@ -18,8 +18,12 @@ public class Health : MonoBehaviour
 
     public float CurrentHealth => _currentHealth;
 
-    
-    
+
+    private void Start()
+    {
+        _currentHealth = 100f;
+    }
+
     public void IncreaseHealth(float amount)
     {
         if (_currentHealth + amount <= _maxHealth)

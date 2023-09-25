@@ -2,12 +2,11 @@ using UnityEngine;
 
 public class Healer : MonoBehaviour
 {
-    [SerializeField] private Health _health;
-
+    [SerializeField] private HealthPresenter _healthPresenter;
     
     private void Heal(float amount)
     {
-        _health.IncreaseHealth(amount);
+        _healthPresenter.Health.IncreaseHealth(amount);
     }
 
     private void Update()

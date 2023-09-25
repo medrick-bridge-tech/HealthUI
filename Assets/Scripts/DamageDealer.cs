@@ -3,12 +3,11 @@ using UnityEngine;
 
 public class DamageDealer : MonoBehaviour
 {
-    [SerializeField] private Health _health;
-
+    [SerializeField] private HealthPresenter _healthPresenter;
     
     private void DealDamage(float amount)
     {
-        _health.DecreaseHealth(amount);
+        _healthPresenter.Health.DecreaseHealth(amount);
     }
 
     private void Update()
@@ -16,7 +15,6 @@ public class DamageDealer : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             DealDamage(2.5f);
-            Debug.Log(_health.CurrentHealth);
         }
     }
 }

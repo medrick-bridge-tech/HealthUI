@@ -3,13 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class Health
 {
-    [SerializeField] private float _minHealth;
-    [SerializeField] private float _maxHealth;
+    private float _minHealth;
+    private float _maxHealth;
 
     private float _currentHealth;
-
+    
     public Action onHealthChanged;
 
     public float MinHealth => _minHealth;
@@ -19,9 +19,10 @@ public class Health : MonoBehaviour
     public float CurrentHealth => _currentHealth;
 
 
-    private void Start()
+    public Health(float minHealth, float maxHealth)
     {
-        _currentHealth = 100f;
+        _minHealth = minHealth;
+        _maxHealth = maxHealth;
     }
 
     public void IncreaseHealth(float amount)
@@ -60,6 +61,6 @@ public class Health : MonoBehaviour
 
     public void UpdateHealth()
     {
-        onHealthChanged.Invoke();
+        onHealthChanged?.Invoke();
     }
 }

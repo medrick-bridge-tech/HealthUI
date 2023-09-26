@@ -3,6 +3,7 @@ using UnityEngine;
 public class Healer : MonoBehaviour
 {
     [SerializeField] private HealthPresenter _healthPresenter;
+    [SerializeField] private float healAmount;
     
     private void Heal(float amount)
     {
@@ -13,7 +14,7 @@ public class Healer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.H))
         {
-            Heal(2.5f);
+            Heal(healAmount);
         }
     }
 }

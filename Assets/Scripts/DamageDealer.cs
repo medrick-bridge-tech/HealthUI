@@ -1,21 +1,23 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class DamageDealer : MonoBehaviour
 {
-    [SerializeField] private HealthPresenter _healthPresenter;
-    [SerializeField] private float damageAmount;
+    [FormerlySerializedAs("healthService")] [SerializeField] private HealthService _healthService;
+    [FormerlySerializedAs("damageCount")] [SerializeField] private float _damageAmount;
+    
     
     private void DealDamage(float amount)
     {
-        _healthPresenter.Health.DecreaseHealth(amount);
+        _healthService.HealthModel.ModifyHealth(-amount);    
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.K))
         {
-            DealDamage(damageAmount);
+            DealDamage(_damageAmount);
         }
     }
 }

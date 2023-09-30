@@ -6,9 +6,9 @@ using UnityEngine.UI;
 
 namespace Editor
 {
-    public class ServiceManagerEditor : UnityEditor.Editor
+    public class ServiceManagerEditor
     {
-        [MenuItem("Services/Health Service")]
+        [MenuItem("GameObject/Services/Health Service", false, 0)]
         public static void CreateHealthService()
         {
             GameObject UI = new GameObject();
